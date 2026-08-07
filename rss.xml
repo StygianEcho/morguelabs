@@ -9,24 +9,24 @@
 
   <item>
     <title>Autopsy №003: Buying options for the big win</title>
-    <link>https://morguelabs.com/autopsies/buying-options.html</link>
-    <guid>https://morguelabs.com/autopsies/buying-options.html</guid>
+    <link>https://morguelabs.com/autopsies/buying-options</link>
+    <guid>https://morguelabs.com/autopsies/buying-options</guid>
     <pubDate>Thu, 06 Aug 2026 17:00:00 GMT</pubDate>
     <description>Twenty years of volatility data. Implied vol runs ~3.4 points above realized and the gap is positive 82% of days; systematically buying OTM strangles loses 68–100% per month, and no crash month rescues the sample. Verdict: dead.</description>
   </item>
 
   <item>
     <title>Autopsy №002: Round-number support and resistance</title>
-    <link>https://morguelabs.com/autopsies/round-numbers.html</link>
-    <guid>https://morguelabs.com/autopsies/round-numbers.html</guid>
+    <link>https://morguelabs.com/autopsies/round-numbers</link>
+    <guid>https://morguelabs.com/autopsies/round-numbers</guid>
     <pubDate>Thu, 06 Aug 2026 16:00:00 GMT</pubDate>
     <description>77,862 hourly ETH bars, 2017–2026. Reversal rates at round numbers are indistinguishable from anywhere else, and a placebo grid of deliberately meaningless levels passes every test the round numbers pass. Verdict: dead.</description>
   </item>
 
   <item>
     <title>Autopsy №001: Copying Congress's stock trades</title>
-    <link>https://morguelabs.com/autopsies/congress-mirror.html</link>
-    <guid>https://morguelabs.com/autopsies/congress-mirror.html</guid>
+    <link>https://morguelabs.com/autopsies/congress-mirror</link>
+    <guid>https://morguelabs.com/autopsies/congress-mirror</guid>
     <pubDate>Thu, 06 Aug 2026 15:00:00 GMT</pubDate>
     <description>4,215 congressional purchase disclosures, 2021–2026. Even with an impossible zero-day disclosure lag, mirroring Congress underperforms the S&amp;P 500 (−0.43% at 21 trading days, t = −2.77). The real 28–45 day lag makes it worse. Verdict: dead.</description>
   </item>
