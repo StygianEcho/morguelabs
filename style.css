@@ -142,6 +142,37 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
 
 code { font: 14px var(--mono); background: var(--panel); padding: 2px 6px; border-radius: 4px; }
 
+/* subscribe */
+.subscribe {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 30px 0;
+}
+.subscribe form { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0 0; }
+.subscribe input[type="email"] {
+  flex: 1 1 220px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: var(--text);
+  font: 15px var(--mono);
+}
+.subscribe input[type="email"]:focus { outline: none; border-color: var(--link); }
+.subscribe button {
+  background: var(--dead);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font: 600 15px system-ui, -apple-system, sans-serif;
+  cursor: pointer;
+}
+.subscribe button:hover { background: #f05a5f; }
+.subscribe .fine { color: var(--muted); font-size: 13.5px; margin: 8px 0 0; }
+
 footer.site {
   border-top: 1px solid var(--line);
   margin-top: 56px;
