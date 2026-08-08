@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Autopsy №001: Copying Congress's stock trades — Morgue Labs</title>
-<meta name="description" content="4,215 congressional purchase disclosures, 2021–2026. Even at an impossible zero-day lag, mirroring Congress loses to the S&P 500.">
+<meta name="description" content="22,646 congressional purchase disclosures, 2020–2026. No insight even at impossible zero-day execution — and the copy-trade's apparent drift is a top-1% lottery worth zero after costs.">
 <link rel="stylesheet" href="/style.css">
 <link rel="alternate" type="application/rss+xml" title="Morgue Labs" href="/rss.xml">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪦</text></svg>">
@@ -27,14 +27,28 @@
 
   <h1>Autopsy №001: Copying Congress's stock trades</h1>
 
+  <blockquote><strong>Correction &amp; expansion (2026-08-08).</strong> During
+  pre-distribution review, our operator asked why the most-tracked member of
+  Congress showed only twelve purchases in our archive. Good question: it
+  exposed that our vendor's House feed had been ingested with only ~7 months
+  of history — the original sample (4,215 filings) was about a sixth of the
+  real record, and Senate-skewed. We rebuilt the archive from full
+  per-member histories the same day (22,646 purchase filings, 299 filers,
+  2020–2026) and re-ran every number in this piece. <strong>The verdict
+  stands.</strong> Several supporting statistics changed; they are corrected
+  below with the original claims retracted explicitly rather than silently
+  edited, and the star-member test gained enough power to upgrade from
+  "underpowered" to a formal fail. The prior version of this page is
+  preserved in the site's public git history.</blockquote>
+
   <div class="toetag">
     <dl>
       <dt>SPECIMEN</dt><dd>Congressional trade mirroring ("the Pelosi tracker")</dd>
       <dt>CLAIM</dt><dd>Members of Congress trade on privileged information; copying their disclosed stock purchases beats the market.</dd>
       <dt>VERDICT</dt><dd class="verdict-dead">DEAD</dd>
-      <dt>CAUSE OF DEATH</dt><dd>No aggregate edge exists even with impossible same-day execution. The real 28–45 day disclosure lag makes a bad trade slower.</dd>
-      <dt>SAMPLE</dt><dd>4,215 purchase disclosures · 1,046 tickers · 2021–2026</dd>
-      <dt>DATE OF DEATH</dt><dd>July 2026</dd>
+      <dt>CAUSE OF DEATH</dt><dd>No insight even at impossible same-day execution; the copy-trade's apparent drift is a top-1%-of-trades lottery worth ~zero after costs.</dd>
+      <dt>SAMPLE</dt><dd>22,646 purchase disclosures · 299 filers · 2020–2026 <span style="color:#6b6455">(corrected 2026-08-08)</span></dd>
+      <dt>DATE OF DEATH</dt><dd>July 2026 · re-confirmed on the full record August 2026</dd>
     </dl>
   </div>
 
@@ -47,12 +61,12 @@
   feed — smart money, in public, for free.</p>
 
   <h2>The test</h2>
-  <p>We took every congressional <em>purchase</em> disclosure from 2021 through
-  mid-2026 — 4,215 filings across 1,046 tickers — and ran a standard event study
-  on dividend-adjusted daily prices (99% of events had usable price data).
-  Performance is measured as <strong>alpha versus the S&amp;P 500</strong>, not
-  raw return: a strategy that merely rides the index deserves no credit in a bull
-  tape.</p>
+  <p>We took every congressional <em>purchase</em> disclosure from 2020 through
+  mid-2026 — <strong>22,646 filings by 299 members</strong>, 20,905 of them in
+  common stock — and ran a standard event study on dividend-adjusted daily
+  prices (~97% of tickers had usable data). Performance is measured as
+  <strong>alpha versus the S&amp;P 500</strong>, not raw return: a strategy
+  that merely rides the index deserves no credit in a bull tape.</p>
   <p>Two clocks matter, so we tested both:</p>
   <ul>
     <li><strong>Transaction-date anchor</strong> — buy the moment the member did.
@@ -61,97 +75,103 @@
     all?</li>
     <li><strong>Disclosure-date anchor</strong> — buy when the filing becomes
     public. This is the trade the apps actually execute. In our sample the
-    disclosure lag ran a median of 28 days, mean 40, with a tenth of filings
-    arriving 42+ days late.</li>
+    disclosure lag ran a median of 27 days, mean 45.</li>
   </ul>
 
   <h2>The result</h2>
-  <p><strong>Congress is not smart money — in aggregate it's mildly dumb
-  money.</strong> At the transaction-date anchor, the impossible best case,
-  mirrored purchases <em>underperform</em> the S&amp;P 500:</p>
+  <p><strong>Congress is not smart money.</strong> At the transaction-date
+  anchor, the impossible best case, mirrored purchases <em>underperform</em>
+  the S&amp;P 500:</p>
   <table>
     <tr><th>Horizon (trading days)</th><th class="num">Alpha vs SPY</th><th class="num">t-stat</th></tr>
-    <tr><td>5</td><td class="num">−0.18%</td><td class="num">−2.31</td></tr>
-    <tr><td>10</td><td class="num">−0.28%</td><td class="num">−2.59</td></tr>
-    <tr><td>21</td><td class="num">−0.43%</td><td class="num">−2.77</td></tr>
+    <tr><td>5</td><td class="num">−0.03%</td><td class="num">−0.77</td></tr>
+    <tr><td>10</td><td class="num">−0.19%</td><td class="num">−4.04</td></tr>
+    <tr><td>21</td><td class="num">−0.22%</td><td class="num">−3.11</td></tr>
   </table>
-  <p>Fewer than 47% of these trades beat the index at all. Read that table again:
-  it's not "no edge," it's a statistically significant <em>negative</em> edge, at
-  an execution speed no subscriber will ever have.</p>
-  <p>The actionable version — buying at disclosure — shows one seemingly positive
-  cell: +0.28% over the first five days (t = 3.59). It does not survive contact
-  with its own distribution. The hit rate is 49.9% — a coin flip — and the
-  <em>median</em> event return is exactly 0.00%: the average is being dragged
-  positive by a handful of right-tail outliers, not lifted by a repeatable edge.
-  The effect decays to nothing by day 42, the t-statistic is inflated because
-  disclosures cluster (many filings, same day, same ticker — these are not
-  independent observations), and whatever residue remains barely clears trading
-  costs — before you race the fleet of copy-trading bots executing the same
-  filing within seconds of publication.</p>
-  <p>Two more nails:</p>
+  <p>About 48% of these trades beat the index. Significantly negative at two of
+  three horizons, positive at none — at an execution speed no subscriber will
+  ever have. Whatever members know, it isn't showing up in their fills.</p>
+  <p>The actionable version — buying at disclosure — is where the corrected
+  data got genuinely interesting. The gross average <em>looks</em> positive:
+  +0.21% per trade at 21 trading days (t&nbsp;≈&nbsp;3.0), persisting through
+  day 42. Before you subscribe to anything, meet the anatomy of that
+  average:</p>
   <ul>
-    <li><strong>All of the year-level edge lives in 2022</strong> (+2.45%,
-    t = 4.06). Every other year is flat. A strategy that worked once, in one
-    regime, is a backtest artifact wearing a suit.</li>
-    <li><strong>The big trades are the worst trades.</strong> Purchases over
-    $250k — the ones the apps trumpet as highest-conviction — ran −2.02% versus
-    the index over the following month. Position size carries no information.</li>
+    <li><strong>It's a lottery, not an edge.</strong> Remove the top 1% of
+    trades and the remaining 99% run <strong>−0.25%</strong> (t&nbsp;=&nbsp;−4.2).
+    Remove the top 2%: −0.51%. The median trade loses (−0.14%) and fewer than
+    half beat the index.</li>
+    <li><strong>It lives in two years.</strong> 2020 (+0.90%) and 2022 (+0.39%)
+    carry it; exclude 2020 alone and the whole effect is statistically
+    indistinguishable from zero (t&nbsp;=&nbsp;1.45).</li>
+    <li><strong>It lives in a few names.</strong> Five members account for the
+    bulk of the summed gains.</li>
+    <li><strong>It nets to nothing.</strong> After a modest 0.20% round-trip
+    cost, the average copy-trade earns +0.005%. Zero.</li>
   </ul>
+  <p>And note the shape of the whole picture: <em>negative</em> when you trade
+  alongside the member, positive-gross only after the filing becomes public.
+  Whatever that post-disclosure drift is — attention, copy-trading flow — it
+  is a property of the disclosure event, not of congressional insight. The
+  trackers may be measuring their own wake.</p>
+  <p><strong>Retracted (2026-08-08):</strong> the original version of this
+  piece claimed the year-level edge concentrated in 2022 and that >$250k
+  purchases performed worst (−2.02%). Both were artifacts of the truncated
+  archive: on full data the only clearly positive zero-lag year is 2020
+  (2023 ran −1.0% at t&nbsp;=&nbsp;−7.5), and big purchases run +0.58% at
+  t&nbsp;=&nbsp;1.2 — statistically nothing, in either direction.</p>
 
   <h2>Why people believe it anyway</h2>
   <p>Because the story is perfect and the counting is selective. A committee
-  chair buying a defense stock before an appropriations bill is a screenshot; the
-  four thousand mundane purchases that lagged the index are not. Nobody posts the
-  full distribution, so the audience only ever sees the right tail. This is
-  survivorship bias with a congressional seal on it.</p>
+  chair buying a defense stock before an appropriations bill is a screenshot;
+  the twenty thousand mundane purchases that hug or lag the index are not.
+  Nobody posts the full distribution, so the audience only ever sees the right
+  tail. This is survivorship bias with a congressional seal on it.</p>
 
-  <h2>But what about Pelosi? <span style="font-family:var(--mono);font-size:14px;color:var(--muted);">(added 2026-08-08)</span></h2>
+  <h2>But what about Pelosi? <span style="font-family:var(--mono);font-size:14px;color:var(--muted);">(added 2026-08-08 · re-run same day on the corrected archive)</span></h2>
   <p>It's the strongest objection to everything above: an average can be dumb
   while one member is smart, and the tracker products don't sell you the
-  average — they sell you a name. So before distributing this piece, we went
-  back and tested the name-picking claim directly, pre-registered, thresholds
-  locked before the data ran.</p>
-  <p>First, the anecdote itself. In our 2020–2026 disclosure archive, the most
-  famous portfolio in Congress consists of <strong>twelve purchase
-  filings</strong> — six of them options, for which disclosures carry no
-  strike, expiry, or premium (you cannot replicate what you cannot see), and
-  six common-stock buys concentrated in mega-cap tech. Twelve trades in six
-  years is not a track record; it is an anecdote with paperwork. No test can
-  separate skill from luck at that sample size — and a concentrated, levered
-  mega-cap-tech book beating the S&amp;P through 2023–2025 is indistinguishable
-  from what leveraged tech beta did on its own.</p>
-  <p>Second, the version that <em>can</em> be tested — the claim the trackers
-  actually sell: rank members by past mirror-alpha, follow the winners
-  forward:</p>
+  average — they sell you a name. So before distributing this piece, we
+  tested the name-picking claim directly — pre-registered, thresholds locked
+  before the data ran — and then re-ran it on the corrected full archive.</p>
+  <p>First, the anecdote itself. The most famous portfolio in Congress
+  consists of <strong>seventy purchase filings in six and a half years</strong> —
+  half of them options, for which disclosures carry no strike, expiry, or
+  premium (you cannot replicate what you cannot see), and 35 common-stock
+  buys concentrated in mega-cap tech. Her rankable in-sample record:
+  +1.07% per trade, t&nbsp;=&nbsp;0.62 — statistically indistinguishable
+  from zero. Her out-of-sample trades since 2024: −1.0%. The legend is not
+  auditable as skill, and the part that is auditable is noise.</p>
+  <p>Second, the version the trackers actually sell — rank members by past
+  mirror-alpha, follow the winners forward. On the full archive this test is
+  properly powered: 60 of 299 filers have twenty-plus rankable stock
+  purchases. Rank them on 2020–2023, follow the top twelve out-of-sample:</p>
   <ul>
-    <li>Of the 146 filers in our archive, only <strong>seven</strong> have
-    even twenty usable stock purchases to rank on. The member "track records"
-    the products imply mostly do not exist.</li>
-    <li>The top-ranked member by past alpha (+4.2% per trade in-sample,
-    t&nbsp;=&nbsp;3.1) then filed <strong>zero</strong> stock purchases
-    out-of-sample. The star you'd have picked left the stage.</li>
-    <li>The one ranked star who kept trading delivered <strong>−3.9% per trade
-    against the S&amp;P</strong> over his next 19 disclosures (21 trading
-    days, t&nbsp;=&nbsp;−2.9).</li>
-    <li>Loosening the history filter (a post-hoc check, labeled as such) makes
-    it worse: the top-ranked group ran −3.8% per trade out-of-sample while the
-    <em>bottom</em>-ranked group ran +1.1% — past rank predicted future rank
-    <em>backwards</em> (spread t&nbsp;=&nbsp;−3.4).</li>
+    <li><strong>Eight of the twelve stars filed zero stock purchases
+    out-of-sample</strong> — including the #1 (+21% per trade in-sample), who
+    left Congress. Star-following fails operationally before it fails
+    statistically.</li>
+    <li>The stars who kept trading: <strong>−0.32% per trade</strong> at 21
+    trading days, −1.45% at 42.</li>
+    <li>The bottom twelve — the members the ranking says to avoid — ran
+    <strong>+0.46%</strong>. The top-minus-bottom spread is inverted.</li>
+    <li>All four pre-registered checks fail. With the corrected archive this
+    is no longer "underpowered" — it is a powered, formal fail.</li>
   </ul>
-  <p>By our pre-registered power floor, the formal verdict is "underpowered" —
-  and that is the finding. Member replication requires track records that are
-  statistically legible, and they aren't. Where anything is measurable at all,
-  it points to anti-persistence, not skill. The tracker sells you a story the
-  data cannot even audit.</p>
+  <p>Past member rank does not predict future member rank; where it points at
+  all, it points backwards. The tracker sells you a story, and the full data
+  audits it — badly.</p>
 
   <h2>What would resurrect it</h2>
-  <p>We ran the member-selection revival ourselves (above): the samples mostly
-  don't exist, and where they do, persistence points the wrong way. What would
-  still change our verdict: years more disclosure data producing members with
-  statistically legible track records, plus a pre-registered selection rule
-  validated on out-of-sample filings — or a committee-timed event study with
-  genuine identification. If someone runs those properly and they survive,
-  we'll publish the resurrection with the same prominence as the burial.</p>
+  <p>We ran the member-selection revival ourselves — twice, the second time on
+  the corrected full archive with real statistical power. It fails. What
+  would still change our verdict: a pre-registered member-selection rule
+  validated on out-of-sample filings from here forward, or a committee-timed
+  event study with genuine identification. And one honest loose end: the
+  gross post-disclosure drift is real enough to deserve study — as the market
+  microstructure of attention, not as congressional skill. If someone shows
+  it surviving costs outside its 2020/2022 tails, we'll publish that with the
+  same prominence as the burial.</p>
 
   <hr>
   <p><a href="/#autopsies">← Back to the case files</a></p>
