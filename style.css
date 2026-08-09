@@ -173,6 +173,42 @@ code { font: 14px var(--mono); background: var(--panel); padding: 2px 6px; borde
 .subscribe button:hover { background: #f05a5f; }
 .subscribe .fine { color: var(--muted); font-size: 13.5px; margin: 8px 0 0; }
 
+/* mirror explorer */
+.mx-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 12px; align-items: center; }
+.mx-chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  font: 12.5px var(--mono); color: var(--muted);
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 999px; padding: 6px 12px; cursor: pointer;
+}
+.mx-chip.on { color: var(--text); }
+.mx-chip.mx-fixed { cursor: default; color: var(--text); }
+.mx-chip:disabled { opacity: 0.35; cursor: not-allowed; }
+.mx-chip i, .mx-sw {
+  width: 10px; height: 10px; border-radius: 3px; display: inline-block;
+}
+.mx-sw { margin-right: 7px; }
+.mx-toggle.on { color: var(--dead); border-color: var(--dead); }
+.mx-add {
+  font: 12.5px var(--mono); color: var(--text); background: var(--panel);
+  border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px;
+}
+.mx-chart {
+  position: relative; background: var(--panel);
+  border: 1px solid var(--line); border-radius: 8px; padding: 10px 6px 4px;
+}
+.mx-chart svg { width: 100%; height: auto; display: block; }
+.mx-tip {
+  display: none; position: absolute; z-index: 5; background: #0c0d10;
+  border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px;
+  font: 12px/1.7 var(--mono); color: var(--text); pointer-events: none;
+  max-width: 250px;
+}
+.mx-stat { color: var(--muted); font-size: 15px; margin: 12px 0 6px; }
+.mx-details summary { color: var(--muted); font: 13px var(--mono); cursor: pointer; margin: 8px 0; }
+.mx-table { font-size: 13.5px; }
+.mx-table td, .mx-table th { padding: 6px 10px 6px 0; }
+
 footer.site {
   border-top: 1px solid var(--line);
   margin-top: 56px;
