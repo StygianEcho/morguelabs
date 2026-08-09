@@ -128,13 +128,17 @@
   This is the trade the tracker products actually deliver (stock filings only);
   it is <em>not</em> anyone's real portfolio. Add members to compare, hover for
   values, and flip the top-1% toggle to watch the basket's entire margin over
-  the index disappear.</p>
+  the index disappear. Because many members' disclosures cover only part of the
+  period, you can also switch the units to <strong>% vs S&amp;P 500</strong>
+  (SPY becomes the zero line) and re-base the comparison from any start year —
+  each member's actual active window is shown as you select them.</p>
   <div id="mirror-explorer">
+    <div class="mx-modes"></div>
     <div class="mx-chips"></div>
     <div class="mx-chart"><div class="mx-tip"></div></div>
     <p class="mx-stat"></p>
     <details class="mx-details"><summary>Data table</summary>
-      <table class="mx-table"><thead><tr><th>Series</th><th class="num">Trades</th><th class="num">Mean α/trade</th><th class="num">Top-3 α / total α</th><th class="num">Final value</th></tr></thead><tbody></tbody></table>
+      <table class="mx-table"><thead><tr><th>Series</th><th class="num">Trades</th><th class="num">Active window</th><th class="num">Mean α/trade</th><th class="num mx-th-end">End value</th></tr></thead><tbody></tbody></table>
     </details>
     <noscript><p style="color:var(--muted);font-size:14px;">The interactive
     chart needs JavaScript — every number it shows also appears in the text
