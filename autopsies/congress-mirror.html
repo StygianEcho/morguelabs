@@ -39,7 +39,15 @@
   below with the original claims retracted explicitly rather than silently
   edited, and the star-member test gained enough power to upgrade from
   "underpowered" to a formal fail. The prior version of this page is
-  preserved in the site's public git history.</blockquote>
+  preserved in the site's public git history.
+  <br><br><strong>Completeness pass (2026-08-10).</strong> We then censused
+  our archive against the House Clerk's own filing indexes, wrote a parser
+  and recovered the 757 missing electronic filings ourselves (validated
+  against filings we already held), OCR-censused the 250 paper-filed scans
+  (49 are "nothing to report"; 77% of the remaining rows belong to two
+  members whose alphas are already measured at zero on thousands of trades),
+  and re-ran everything. The sample grew to 25,159 purchases; every verdict
+  held; the big-trade analysis gained a finding (below).</blockquote>
 
   <div class="toetag">
     <dl>
@@ -47,8 +55,8 @@
       <dt>CLAIM</dt><dd>Members of Congress trade on privileged information; copying their disclosed stock purchases beats the market.</dd>
       <dt>VERDICT</dt><dd class="verdict-dead">DEAD</dd>
       <dt>CAUSE OF DEATH</dt><dd>No insight even at impossible same-day execution; the copy-trade's apparent drift is a top-1%-of-trades lottery worth ~zero after costs.</dd>
-      <dt>SAMPLE</dt><dd>22,646 purchase disclosures · 299 filers · 2020–2026 <span style="color:#6b6455">(corrected 2026-08-08)</span></dd>
-      <dt>DATE OF DEATH</dt><dd>July 2026 · re-confirmed on the full record August 2026</dd>
+      <dt>SAMPLE</dt><dd>25,159 purchase disclosures · 208 filers · 2020–2026 <span style="color:#6b6455">(archive censused &amp; completed vs the House Clerk's own indexes, 2026-08-10)</span></dd>
+      <dt>DATE OF DEATH</dt><dd>July 2026 · re-confirmed twice on progressively complete records, August 2026</dd>
     </dl>
   </div>
 
@@ -62,9 +70,14 @@
 
   <h2>The test</h2>
   <p>We took every congressional <em>purchase</em> disclosure from 2020 through
-  mid-2026 — <strong>22,646 filings by 299 members</strong>, 20,905 of them in
+  mid-2026 — <strong>25,159 filings by 208 members</strong>, 23,328 of them in
   common stock — and ran a standard event study on dividend-adjusted daily
-  prices (~97% of tickers had usable data). Performance is measured as
+  prices (~97% of tickers had usable data). The archive behind this number is
+  censused against the House Clerk's own filing indexes: a commercial feed,
+  plus 757 electronic filings we parsed directly from the Clerk's PDFs with a
+  validated parser, plus an OCR census of the paper-filed residue with a
+  sensitivity bound showing the unrecovered scans cannot alter any
+  conclusion below. Performance is measured as
   <strong>alpha versus the S&amp;P 500</strong>, not raw return: a strategy
   that merely rides the index deserves no credit in a bull tape.</p>
   <p>Two clocks matter, so we tested both:</p>
@@ -84,30 +97,30 @@
   the S&amp;P 500:</p>
   <table>
     <tr><th>Horizon (trading days)</th><th class="num">Alpha vs SPY</th><th class="num">t-stat</th></tr>
-    <tr><td>5</td><td class="num">−0.03%</td><td class="num">−0.77</td></tr>
-    <tr><td>10</td><td class="num">−0.19%</td><td class="num">−4.04</td></tr>
-    <tr><td>21</td><td class="num">−0.22%</td><td class="num">−3.11</td></tr>
+    <tr><td>5</td><td class="num">−0.04%</td><td class="num">−1.17</td></tr>
+    <tr><td>10</td><td class="num">−0.17%</td><td class="num">−3.81</td></tr>
+    <tr><td>21</td><td class="num">−0.22%</td><td class="num">−3.26</td></tr>
   </table>
   <p>About 48% of these trades beat the index. Significantly negative at two of
   three horizons, positive at none — at an execution speed no subscriber will
   ever have. Whatever members know, it isn't showing up in their fills.</p>
   <p>The actionable version — buying at disclosure — is where the corrected
   data got genuinely interesting. The gross average <em>looks</em> positive:
-  +0.21% per trade at 21 trading days (t&nbsp;≈&nbsp;3.0), persisting through
-  day 42. Before you subscribe to anything, meet the anatomy of that
+  +0.17% per trade at 21 trading days (t&nbsp;≈&nbsp;2.5), fading toward
+  nothing by day 42. Before you subscribe to anything, meet the anatomy of that
   average:</p>
   <ul>
     <li><strong>It's a lottery, not an edge.</strong> Remove the top 1% of
-    trades and the remaining 99% run <strong>−0.25%</strong> (t&nbsp;=&nbsp;−4.2).
-    Remove the top 2%: −0.51%. The median trade loses (−0.14%) and fewer than
+    trades and the remaining 99% run <strong>−0.30%</strong> (t&nbsp;=&nbsp;−5.2).
+    Remove the top 2%: −0.56%. The median trade loses (−0.19%) and fewer than
     half beat the index.</li>
-    <li><strong>It lives in two years.</strong> 2020 (+0.90%) and 2022 (+0.39%)
-    carry it; exclude 2020 alone and the whole effect is statistically
-    indistinguishable from zero (t&nbsp;=&nbsp;1.45).</li>
+    <li><strong>It lives in one year.</strong> Exclude 2020 alone and the whole
+    effect is +0.04% at t&nbsp;=&nbsp;0.55 — statistically
+    indistinguishable from zero.</li>
     <li><strong>It lives in a few names.</strong> Five members account for the
     bulk of the summed gains.</li>
-    <li><strong>It nets to nothing.</strong> After a modest 0.20% round-trip
-    cost, the average copy-trade earns +0.005%. Zero.</li>
+    <li><strong>It nets to less than nothing.</strong> After a modest 0.20%
+    round-trip cost, the average copy-trade earns −0.03%.</li>
   </ul>
   <p>And note the shape of the whole picture: <em>negative</em> when you trade
   alongside the member, positive-gross only after the filing becomes public.
@@ -118,8 +131,23 @@
   piece claimed the year-level edge concentrated in 2022 and that >$250k
   purchases performed worst (−2.02%). Both were artifacts of the truncated
   archive: on full data the only clearly positive zero-lag year is 2020
-  (2023 ran −1.0% at t&nbsp;=&nbsp;−7.5), and big purchases run +0.58% at
-  t&nbsp;=&nbsp;1.2 — statistically nothing, in either direction.</p>
+  (2023 ran −1.1% at t&nbsp;=&nbsp;−8.5), and the big-purchase story turned
+  out to be more interesting than either claim — see below.</p>
+
+  <h2>The big-trade tell <span style="font-family:var(--mono);font-size:14px;color:var(--muted);">(added 2026-08-10, on the completed archive)</span></h2>
+  <p>On the complete record, purchases over $250k <em>do</em> show something
+  at the moment of purchase: +1.54% over 21 trading days
+  (t&nbsp;=&nbsp;+3.2, n&nbsp;=&nbsp;298). Before anyone gets excited: three
+  members account for ~85% of the summed gains, the <em>average member's</em>
+  big-trade alpha is zero (clustered t&nbsp;=&nbsp;+0.08), and the effect
+  exists only in 2020–2022 — since 2023 it's been negative. But here is the
+  part worth the price of admission: measure those same big trades from the
+  <strong>disclosure date</strong> — the first moment you could copy them —
+  and the alpha is <strong>+0.001% (t&nbsp;=&nbsp;0.00)</strong>. Not
+  "small." Zero, to three decimal places. Whatever a handful of big trades
+  once knew, the ~27-day disclosure lag launders it completely before the
+  filing reaches your inbox. The tracker apps are selling you the receipt
+  after the meal has been eaten.</p>
 
   <h2 id="explore">Examine the evidence yourself</h2>
   <p>Growth of $10,000 in the <strong>disclosure-mirror copy-trade</strong> —
@@ -161,26 +189,26 @@
   tested the name-picking claim directly — pre-registered, thresholds locked
   before the data ran — and then re-ran it on the corrected full archive.</p>
   <p>First, the anecdote itself. The most famous portfolio in Congress
-  consists of <strong>seventy purchase filings in six and a half years</strong> —
-  half of them options, for which disclosures carry no strike, expiry, or
-  premium (you cannot replicate what you cannot see), and 35 common-stock
+  consists of <strong>78 purchase filings in six and a half years</strong> —
+  nearly half options, for which disclosures carry no strike, expiry, or
+  premium (you cannot replicate what you cannot see), and 41 common-stock
   buys concentrated in mega-cap tech. Her rankable in-sample record:
-  +1.07% per trade, t&nbsp;=&nbsp;0.62 — statistically indistinguishable
+  +0.79% per trade, t&nbsp;=&nbsp;0.53 — statistically indistinguishable
   from zero. Her out-of-sample trades since 2024: −1.0%. The legend is not
   auditable as skill, and the part that is auditable is noise.</p>
   <p>Second, the version the trackers actually sell — rank members by past
   mirror-alpha, follow the winners forward. On the full archive this test is
-  properly powered: 60 of 299 filers have twenty-plus rankable stock
-  purchases. Rank them on 2020–2023, follow the top twelve out-of-sample:</p>
+  properly powered: 71 of 208 filers have twenty-plus rankable stock
+  purchases. Rank them on 2020–2023, follow the top fifteen out-of-sample:</p>
   <ul>
-    <li><strong>Eight of the twelve stars filed zero stock purchases
-    out-of-sample</strong> — including the #1 (+21% per trade in-sample), who
-    left Congress. Star-following fails operationally before it fails
-    statistically.</li>
-    <li>The stars who kept trading: <strong>−0.32% per trade</strong> at 21
-    trading days, −1.45% at 42.</li>
-    <li>The bottom twelve — the members the ranking says to avoid — ran
-    <strong>+0.46%</strong>. The top-minus-bottom spread is inverted.</li>
+    <li><strong>Nine of the fifteen stars filed zero stock purchases
+    out-of-sample</strong> (two more filed exactly one) — including the #1
+    (+21% per trade in-sample), who left Congress. Star-following fails
+    operationally before it fails statistically.</li>
+    <li>The stars who kept trading: <strong>−0.40% per trade</strong> at 21
+    trading days, −1.52% at 42.</li>
+    <li>The bottom fifteen — the members the ranking says to avoid — ran
+    <strong>+0.10%</strong>. The top-minus-bottom spread is inverted.</li>
     <li>All four pre-registered checks fail. With the corrected archive this
     is no longer "underpowered" — it is a powered, formal fail.</li>
   </ul>
