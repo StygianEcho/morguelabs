@@ -61,9 +61,9 @@
   feed — smart money, in public, for free.</p>
 
   <h2>The test</h2>
-  <p>We took every congressional <em>purchase</em> disclosure from 2020 through
-  mid-2026 — <strong>22,646 filings by 299 members</strong>, 20,905 of them in
-  common stock — and ran a standard event study on dividend-adjusted daily
+  <p>We analyzed <strong>22,646 congressional purchase disclosures</strong> from
+  2020 through mid-2026 — 299 members, 20,905 entries in common stock — with a
+  standard event study on dividend-adjusted daily
   prices (~97% of tickers had usable data). Performance is measured as
   <strong>alpha versus the S&amp;P 500</strong>, not raw return: a strategy
   that merely rides the index deserves no credit in a bull tape.</p>
@@ -77,6 +77,19 @@
     public. This is the trade the apps actually execute. In our sample the
     disclosure lag ran a median of 27 days, mean 45.</li>
   </ul>
+  <p><strong>Data provenance <span style="font-family:var(--mono);font-size:14px;color:var(--muted);">(verified 2026-08-08)</span>:</strong>
+  disclosures come from a commercial STOCK Act aggregator, which we
+  cross-checked against the House Clerk's own annual filing indexes. Every
+  filing in our archive appears in the Clerk's index and its PDF resolves on
+  the Clerk's servers (100% validity), and our archive holds roughly
+  <strong>68–83% of all House periodic-transaction filings per year</strong>.
+  The remainder are paper-filed reports (scanned images no aggregator
+  parses), amendments — whose original transactions we generally already
+  hold — and a minority of electronic filings the vendor missed. We see no
+  mechanism by which the missing filings would differ systematically from the
+  held ones, but a sample is a sample, and we label it as one. Senate filings
+  come from the same aggregator's separate feed and have not yet been
+  independently indexed against the Senate eFD system.</p>
 
   <h2>The result</h2>
   <p><strong>Congress is not smart money.</strong> At the transaction-date
@@ -161,8 +174,9 @@
   tested the name-picking claim directly — pre-registered, thresholds locked
   before the data ran — and then re-ran it on the corrected full archive.</p>
   <p>First, the anecdote itself. The most famous portfolio in Congress
-  consists of <strong>seventy purchase filings in six and a half years</strong> —
-  half of them options, for which disclosures carry no strike, expiry, or
+  consists of <strong>at least seventy purchase entries in six and a half
+  years</strong> (the Clerk's index shows one 2021 filing our vendor missed —
+  it held option exercises and amendments) — half of the entries options, for which disclosures carry no strike, expiry, or
   premium (you cannot replicate what you cannot see), and 35 common-stock
   buys concentrated in mega-cap tech. Her rankable in-sample record:
   +1.07% per trade, t&nbsp;=&nbsp;0.62 — statistically indistinguishable
