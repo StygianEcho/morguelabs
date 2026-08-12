@@ -32,6 +32,14 @@
   </item>
 
   <item>
+    <title>Autopsy №005: The congressional-trading ETF that beats the market</title>
+    <link>https://morguelabs.com/autopsies/congress-etf</link>
+    <guid>https://morguelabs.com/autopsies/congress-etf</guid>
+    <pubDate>Tue, 11 Aug 2026 22:00:00 GMT</pubDate>
+    <description>A reader answered Autopsy №001 with a Morningstar page showing NANC ahead of the index. They were right: NANC returned +108.8% against the S&amp;P 500's +96.1% since 2023-03-31. All of it is beta. The fund carries 1.14x market risk, and risk-adjusted alpha is -0.075%/month (t = -0.37), or -0.9% a year. QQQ returned +128.1% over the identical window at 0.20% expense against NANC's 0.72%. The sibling fund KRUZ, same premise for the other party, returned +33.2% against the index's +48.7% and is no longer active. Verdict: dead, and the specimen is the inference, not the fund.</description>
+  </item>
+
+  <item>
     <title>Autopsy №001: Copying Congress's stock trades</title>
     <link>https://morguelabs.com/autopsies/congress-mirror</link>
     <guid>https://morguelabs.com/autopsies/congress-mirror</guid>
