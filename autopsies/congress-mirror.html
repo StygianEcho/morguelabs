@@ -48,7 +48,28 @@
   77% of the rows we did not recover belong to two members whose alphas are
   already measured at zero on thousands of trades, and a sensitivity bound
   shows they cannot flip any result here), and re-ran everything. The sample grew to 25,159 purchases; every verdict
-  held; the big-trade analysis gained a finding (below).</blockquote>
+  held; the big-trade analysis gained a finding (below).
+  <br><br><strong>Retraction and extension (2026-08-11).</strong> A reader asked
+  whether 21 trading days is long enough. We had not tested longer holds, so we
+  pre-registered the extension and ran it. The holding-period answer is in its own
+  section below, and it does not rescue the strategy. The second result is a
+  correction against ourselves: <strong>this page called the zero-lag
+  underperformance "significantly negative" on the strength of t-statistics that
+  treated every one of roughly 24,500 trades as an independent observation.</strong>
+  They are not independent, because a single member's trades move together.
+  Clustered by member, the t-statistics are −1.92, −1.88 and −1.59.
+  None clears significance at conventional levels. The <em>sign</em> is unchanged
+  and holds in every specification we have run, but the confidence was overstated
+  and is withdrawn. Worse: we had already applied member clustering in the
+  big-trade section below, where it killed a <em>positive</em> finding, while
+  leaving the looser standard on the headline where it flattered a
+  <em>negative</em> one. Applying the strict test only where it supports your
+  conclusion is precisely the failure this publication exists to document, and we
+  did it. Our own <a href="/methodology">methodology page</a> states the rule we
+  broke: "clustered events are not independent observations; t-statistics get
+  treated with corresponding suspicion." Writing the standard down is evidently
+  not the same as meeting it. Pre-registration, code and full results are in the
+  <a href="https://github.com/StygianEcho/morguelabs">public repo</a>.</blockquote>
 
   <div class="toetag">
     <dl>
@@ -102,14 +123,27 @@
   anchor, the impossible best case, mirrored purchases <em>underperform</em>
   the S&amp;P 500:</p>
   <table>
-    <tr><th>Horizon (trading days)</th><th class="num">Alpha vs SPY</th><th class="num">t-stat</th></tr>
-    <tr><td>5</td><td class="num">−0.04%</td><td class="num">−1.17</td></tr>
-    <tr><td>10</td><td class="num">−0.17%</td><td class="num">−3.81</td></tr>
-    <tr><td>21</td><td class="num">−0.22%</td><td class="num">−3.26</td></tr>
+    <tr><th>Horizon (trading days)</th><th class="num">Alpha vs SPY</th><th class="num">t, naive</th><th class="num">t, clustered by member</th></tr>
+    <tr><td>5</td><td class="num">−0.04%</td><td class="num">−1.17</td><td class="num">−1.92</td></tr>
+    <tr><td>10</td><td class="num">−0.17%</td><td class="num">−3.81</td><td class="num">−1.88</td></tr>
+    <tr><td>21</td><td class="num">−0.22%</td><td class="num">−3.26</td><td class="num">−1.59</td></tr>
   </table>
-  <p>About 48% of these trades beat the index. Significantly negative at two of
-  three horizons, positive at none — at an execution speed no subscriber will
-  ever have. Whatever members know, it isn't showing up in their fills.</p>
+  <p class="correction-note" style="border-left:3px solid var(--muted);padding-left:14px;">
+  <strong>Corrected 2026-08-11.</strong> The naive column is what this page
+  originally published, and it is the wrong test. It assumes every trade is an
+  independent draw, when a single member files many correlated trades. The
+  clustered column is the defensible one. Note that clustering does not simply
+  weaken the result: at 5 days it makes it <em>stronger</em> (−1.17 to
+  −1.92), at 10 and 21 days it weakens it. Under the correct test the three
+  horizons are strikingly consistent, all landing near −1.6 to −1.9,
+  and none individually clears significance at the 5% level. We withdraw the
+  claim that this is significantly negative.</p>
+  <p>About 48% of these trades beat the index. What survives the correction is
+  this: the alpha is negative at every horizon tested, at an execution speed no
+  subscriber will ever have, and the effect is consistent in direction rather
+  than large or certain. Whatever members know, it isn't showing up in their
+  fills. What does not survive is our original claim to statistical
+  significance.</p>
   <p>The actionable version — buying at disclosure — is where the corrected
   data got genuinely interesting. The gross average <em>looks</em> positive:
   +0.17% per trade at 21 trading days (t&nbsp;≈&nbsp;2.5), fading toward
@@ -133,6 +167,53 @@
   Whatever that post-disclosure drift is — attention, copy-trading flow — it
   is a property of the disclosure event, not of congressional insight. The
   trackers may be measuring their own wake.</p>
+
+  <h2>Does it work if you just hold longer? <span style="font-family:var(--mono);font-size:14px;color:var(--muted);">(added 2026-08-11, reader question)</span></h2>
+  <p>A reader asked a fair question we had not answered: is 21 trading days long
+  enough, and what happens at 90 days or a year? We had not tested it. So we
+  wrote a pre-registration first, fixing the design and the decision rules before
+  seeing any number, then ran it once.</p>
+  <p>Every horizon below is measured on the <em>same</em> set of events, namely
+  those old enough to have a full year of forward prices. That matters: measuring
+  21 days on all trades and a year on only the older ones would confound holding
+  period with sample composition. Disclosure anchor, the version you can actually
+  trade:</p>
+  <table>
+    <tr><th>Hold</th><th class="num">Alpha vs SPY</th><th class="num">Net of 20bp</th><th class="num">Median trade</th><th class="num">Beat the index</th></tr>
+    <tr><td>10 days</td><td class="num">+0.15%</td><td class="num">−0.05%</td><td class="num">−0.02%</td><td class="num">49.7%</td></tr>
+    <tr><td>21 days</td><td class="num">+0.26%</td><td class="num">+0.06%</td><td class="num">−0.12%</td><td class="num">49.3%</td></tr>
+    <tr><td>62 days (~3mo)</td><td class="num">+0.08%</td><td class="num">−0.12%</td><td class="num">−0.70%</td><td class="num">47.6%</td></tr>
+    <tr><td>252 days (~1yr)</td><td class="num">−1.28%</td><td class="num">−1.48%</td><td class="num">−4.67%</td><td class="num">42.8%</td></tr>
+  </table>
+  <p>Holding longer does not rescue the trade. It makes it worse, and the share
+  of trades beating the index falls the whole way out. The most telling column is
+  the median: at a one-year hold the typical copied trade is down 4.67% against
+  the index while the average is down only 1.28%. Roughly three and a half points
+  of that average is carried by a small number of very large winners. It is the
+  same lottery structure as the top-1% result above, just more extreme with
+  time.</p>
+  <p><strong>Now the part that argues against us.</strong> We also ran two years
+  and got −6.50% (median −13.36%, 37.8% beating the index). We are
+  not putting that number forward as evidence about Congress, because we do not
+  think it is. Individual stocks are positively skewed against a cap-weighted
+  index: most single stocks underperform the index over long holds while the
+  index return is carried by a small minority. Any equal-weighted basket of
+  individual stocks measured against the S&amp;P 500 will look worse and worse as
+  the horizon lengthens, with nothing to do with who picked them. The proper
+  control is a matched basket of comparable stocks rather than the index, and we
+  have not run it. That caveat applies in smaller measure to the one-year number
+  above.</p>
+  <p><strong>Verdict against our own pre-registered rules: inconclusive.</strong>
+  We required alpha to be negative at all four horizons to call the finding
+  extended, and the zero-lag anchor came back at +0.002% at 62 days, which broke
+  that condition by two thousandths of a percentage point. We also required a
+  reversal above +0.50% to call the finding horizon-limited, and nothing came
+  close. So neither rule fires. With only six years of data the conservative test
+  has very little power and cannot certify a direction at long horizons either
+  way. Writing a threshold at exactly zero was a design mistake on our part and a
+  band would have been better, but we are not rewriting a decision rule after
+  seeing the number it decides. What can be said honestly: no specification we
+  ran showed longer holding periods helping.</p>
   <p><strong>Retracted (2026-08-08):</strong> the original version of this
   piece claimed the year-level edge concentrated in 2022 and that >$250k
   purchases performed worst (−2.02%). Both were artifacts of the truncated
