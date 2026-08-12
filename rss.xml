@@ -28,7 +28,7 @@
     <link>https://morguelabs.com/autopsies/congress-mirror</link>
     <guid>https://morguelabs.com/autopsies/congress-mirror</guid>
     <pubDate>Thu, 06 Aug 2026 15:00:00 GMT</pubDate>
-    <description>25,159 congressional purchase disclosures, 2020–2026 (censused and completed vs the House Clerk's own indexes). Zero-lag mirroring underperforms the S&amp;P 500 (−0.22% at 21 trading days, t = −3.26); the disclosure-lagged copy-trade's gross drift is a top-1% lottery worth zero after costs; star-member selection formally fails out-of-sample. Verdict: dead.</description>
+    <description>25,159 congressional purchase disclosures, 2020–2026 (censused and completed vs the House Clerk's own indexes). Zero-lag mirroring underperforms the S&amp;P 500 at every horizon tested (−0.22% at 21 trading days; member-clustered t = −1.59, not significant, corrected 2026-08-11 from a naive t = −3.26 we should not have used); the disclosure-lagged copy-trade's gross drift is a top-1% lottery worth zero after costs; holding longer makes it worse, not better (−1.28% at one year, median −4.67%); star-member selection formally fails out-of-sample. Verdict: dead.</description>
   </item>
 
 </channel>
