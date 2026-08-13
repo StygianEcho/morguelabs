@@ -224,6 +224,35 @@ footer.site {
 }
 footer.site p { margin: 0 0 10px; }
 
+/* Quantocracy badge. Self-hosted deliberately: the site carries no third-party
+   requests, and their asset host rejects some non-browser fetches. */
+.quantocracy {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 22px 0 0;
+}
+/* Badge sits at the right edge; the blurb reads first and takes the slack.
+   Ordered in CSS so the markup keeps link-then-text for screen readers. */
+.quantocracy > a { order: 2; margin-left: auto; }
+.quantocracy span { order: 1; }
+/* The badge is transparent with a #555 wordmark, drawn for light backgrounds.
+   On our #101114 page that is ~2.5:1 contrast and the tagline disappears, so it
+   sits on a light chip. Keeps their brand colours intact and legible. */
+.quantocracy img {
+  width: 68px;
+  height: 68px;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  padding: 7px;
+  background: #f6f5f2;
+  border-radius: 12px;
+  opacity: 0.92;
+  transition: opacity 120ms ease;
+}
+.quantocracy a:hover img, .quantocracy a:focus-visible img { opacity: 1; }
+.quantocracy span { font-size: 13px; line-height: 1.45; }
+
 @media (max-width: 540px) {
   h1 { font-size: 27px; }
   .toetag { padding-left: 20px; }
